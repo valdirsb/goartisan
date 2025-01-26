@@ -1,6 +1,6 @@
 package main
 
-import "mycli/cmd"
+import "github.com/valdirsb/goartisan/cmd"
 
 func main() {
 	cmd.Execute()
