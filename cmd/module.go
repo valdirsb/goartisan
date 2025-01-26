@@ -79,8 +79,10 @@ func createModuleRepository(entityName, projectName string) error {
 
 	// Carrega o conteúdo do template
 
+	fmt.Println(strings.Title(strings.ToLower(projectName)))
+
 	//Modules Usecase
-	content, err := templatesFS.ReadFile(fmt.Sprintf("templates/module_usecase.go.tpl"))
+	content, err := templatesFS.ReadFile(fmt.Sprintf("templates/module_repository_interface.go.tpl"))
 	if err != nil {
 		return fmt.Errorf("erro ao ler o template: %w", err)
 	}
@@ -189,7 +191,7 @@ var makeCmd3 = &cobra.Command{
 			return
 		}
 
-		entityName := args[0]
+		entityName := capitalizeFirstLetter(args[0])
 
 		projectName := "app.mentor.space"
 
@@ -224,6 +226,13 @@ var makeCmd3 = &cobra.Command{
 		}
 
 	},
+}
+
+func capitalizeFirstLetter(s string) string {
+	if len(s) == 0 {
+		return s
+	}
+	return strings.ToUpper(s[:1]) + s[1:]
 }
 
 func init() {
