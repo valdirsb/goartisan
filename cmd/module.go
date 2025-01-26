@@ -13,7 +13,7 @@ func createModulePorts(entityName, projectName string) error {
 	// Carrega o conteúdo do template
 
 	//Modules Ports
-	content, err := templatesFS.ReadFile(fmt.Sprintf("templates/module_ports.go.tpl"))
+	content, err := templatesFS.ReadFile("templates/module_ports.go.tpl")
 	if err != nil {
 		return fmt.Errorf("erro ao ler o template: %w", err)
 	}
@@ -27,7 +27,7 @@ func createModulePorts(entityName, projectName string) error {
 	outputDir := fmt.Sprintf("./modules/%s", entityName) // Exemplo: module/User
 	os.MkdirAll(outputDir, os.ModePerm)                  // Cria o diretório se não existir
 
-	outputFile := filepath.Join(outputDir, fmt.Sprintf("ports.go"))
+	outputFile := filepath.Join(outputDir, "ports.go")
 
 	// Escreve o arquivo de saída
 
@@ -36,7 +36,7 @@ func createModulePorts(entityName, projectName string) error {
 		return fmt.Errorf("erro ao criar o arquivo: %w", err)
 	}
 
-	fmt.Println("Arquivo gerado com sucesso:", fmt.Sprintf(outputFile))
+	fmt.Println("Arquivo gerado com sucesso:", outputFile)
 
 	return nil
 }
@@ -46,7 +46,7 @@ func createModuleUsecase(entityName, projectName string) error {
 	// Carrega o conteúdo do template
 
 	//Modules Usecase
-	content, err := templatesFS.ReadFile(fmt.Sprintf("templates/module_usecase.go.tpl"))
+	content, err := templatesFS.ReadFile("templates/module_usecase.go.tpl")
 	if err != nil {
 		return fmt.Errorf("erro ao ler o template: %w", err)
 	}
@@ -70,7 +70,7 @@ func createModuleUsecase(entityName, projectName string) error {
 		return fmt.Errorf("erro ao criar o arquivo: %w", err)
 	}
 
-	fmt.Println("Arquivo gerado com sucesso:", fmt.Sprintf(outputFile))
+	fmt.Println("Arquivo gerado com sucesso:", outputFile)
 
 	return nil
 }
@@ -79,10 +79,8 @@ func createModuleRepository(entityName, projectName string) error {
 
 	// Carrega o conteúdo do template
 
-	fmt.Println(strings.Title(strings.ToLower(projectName)))
-
 	//Modules Usecase
-	content, err := templatesFS.ReadFile(fmt.Sprintf("templates/module_repository_interface.go.tpl"))
+	content, err := templatesFS.ReadFile("templates/module_repository_interface.go.tpl")
 	if err != nil {
 		return fmt.Errorf("erro ao ler o template: %w", err)
 	}
@@ -98,7 +96,7 @@ func createModuleRepository(entityName, projectName string) error {
 	outputDir := fmt.Sprintf("./modules/%s/repository", entityName) // Exemplo: module/User
 	os.MkdirAll(outputDir, os.ModePerm)                             // Cria o diretório se não existir
 
-	outputFile := filepath.Join(outputDir, fmt.Sprintf("repository_interface.go"))
+	outputFile := filepath.Join(outputDir, "repository_interface.go")
 
 	// Escreve o arquivo de saída
 
@@ -107,7 +105,7 @@ func createModuleRepository(entityName, projectName string) error {
 		return fmt.Errorf("erro ao criar o arquivo: %w", err)
 	}
 
-	fmt.Println("Arquivo gerado com sucesso:", fmt.Sprintf(outputFile))
+	fmt.Println("Arquivo gerado com sucesso:", outputFile)
 
 	return nil
 }
@@ -117,7 +115,7 @@ func createModuleDomain(entityName, projectName string) error {
 	// Carrega o conteúdo do template
 
 	//Modules Usecase
-	content, err := templatesFS.ReadFile(fmt.Sprintf("templates/module_domain.go.tpl"))
+	content, err := templatesFS.ReadFile("templates/module_domain.go.tpl")
 	if err != nil {
 		return fmt.Errorf("erro ao ler o template: %w", err)
 	}
@@ -142,7 +140,7 @@ func createModuleDomain(entityName, projectName string) error {
 		return fmt.Errorf("erro ao criar o arquivo: %w", err)
 	}
 
-	fmt.Println("Arquivo gerado com sucesso:", fmt.Sprintf(outputFile))
+	fmt.Println("Arquivo gerado com sucesso:", outputFile)
 
 	return nil
 }
@@ -152,7 +150,7 @@ func createModuleSqlc(entityName, projectName string) error {
 	// Carrega o conteúdo do template
 
 	//Modules Usecase
-	content, err := templatesFS.ReadFile(fmt.Sprintf("templates/module_sqlc.yaml.tpl"))
+	content, err := templatesFS.ReadFile("templates/module_sqlc.yaml.tpl")
 	if err != nil {
 		return fmt.Errorf("erro ao ler o template: %w", err)
 	}
@@ -168,7 +166,7 @@ func createModuleSqlc(entityName, projectName string) error {
 	outputDir := fmt.Sprintf("./modules/%s", entityName) // Exemplo: module/User
 	os.MkdirAll(outputDir, os.ModePerm)                  // Cria o diretório se não existir
 
-	outputFile := filepath.Join(outputDir, fmt.Sprintf("sqlc.yaml"))
+	outputFile := filepath.Join(outputDir, "sqlc.yaml")
 
 	// Escreve o arquivo de saída
 
@@ -177,7 +175,7 @@ func createModuleSqlc(entityName, projectName string) error {
 		return fmt.Errorf("erro ao criar o arquivo: %w", err)
 	}
 
-	fmt.Println("Arquivo gerado com sucesso:", fmt.Sprintf(outputFile))
+	fmt.Println("Arquivo gerado com sucesso:", outputFile)
 
 	return nil
 }
